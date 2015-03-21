@@ -2,4 +2,6 @@
 
 kill $(ps aux | grep 'ulauncher' | grep -v grep | awk '{print $2}')
 
-quickly run -- --verbose --verbose
+glib-compile-resources --sourcedir=data data/ulauncher.gresource.xml
+
+./bin/ulauncher -vv

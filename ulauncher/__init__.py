@@ -8,12 +8,13 @@ from locale import gettext as _
 
 import dbus
 import dbus.service
-from gi.repository import Gtk  # pylint: disable=E0611
+from gi.repository import Gtk, Gio
 from dbus.mainloop.glib import DBusGMainLoop
 
 from ulauncher import UlauncherWindow
 from ulauncher.Indicator import Indicator
 from ulauncher_lib import set_up_logging, get_version
+from ulauncher_lib.ulauncherconfig import get_data_file
 
 
 DBUS_SERVICE = 'net.launchpad.ulauncher'
@@ -29,6 +30,11 @@ def parse_options():
     (options, args) = parser.parse_args()
 
     return options
+
+
+def register_resources():
+    resource = Gio.Resource.load(get_data_file('ulauncher.gresource'))
+    resource._register()
 
 
 def main():
@@ -51,6 +57,7 @@ def main():
     else:
 
         logger.debug("Starting a new instance...")
+        register_resources()
         window = UlauncherWindow.UlauncherWindow()
         UlauncherDbusService(window)
         window.show()

@@ -1,4 +1,4 @@
-@import url("reset.css");
+@import url("resource://data/ui/reset.css");
 
 GtkWindow {
     background-color: rgba(104,112,116, 0.8);

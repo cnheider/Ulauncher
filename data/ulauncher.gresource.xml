@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gresources>
+  <gresource prefix="/data">
+    <file>media/background.png</file>
+    <file>media/ulauncher.svg</file>
+    <file compressed="true">ui/UlauncherWindow.ui</file>
+    <file compressed="true">ui/AboutUlauncherDialog.ui</file>
+    <file compressed="true">ui/app_result_item.ui</file>
+    <file compressed="true">ui/PreferencesUlauncherDialog.ui</file>
+    <file>ui/reset.css</file>
+    <file>ui/ulauncher.css</file>
+  </gresource>
+</gresources>

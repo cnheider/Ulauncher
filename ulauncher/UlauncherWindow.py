@@ -2,7 +2,7 @@
 
 import logging
 import threading
-from gi.repository import Gtk, Gdk, Keybinder
+from gi.repository import Gio, Gtk, Gdk, Keybinder
 
 from ulauncher_lib import Window
 from ulauncher_lib.Display import display
@@ -62,7 +62,8 @@ class UlauncherWindow(Window):
 
     def init_styles(self):
         self.provider = Gtk.CssProvider()
-        self.provider.load_from_path('data/ui/ulauncher.css')
+        bytes = Gio.resources_lookup_data('/data/ui/ulauncher.css', 0)
+        self.provider.load_from_data(bytes.get_data())
         self.apply_css(self, self.provider)
         self.screen = self.get_screen()
         self.visual = self.screen.get_rgba_visual()
